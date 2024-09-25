@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}用户调试信息{% endblock %}
+
+{% block content %}
+<h1>用户调试信息</h1>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>用户名</th>
+        <th>密码</th>
+    </tr>
+    {% for user in users %}
+    <tr>
+        <td>{{ user.id }}</td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.password }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

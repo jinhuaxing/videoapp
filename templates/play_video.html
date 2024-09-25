@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}视频播放器{% endblock %}
+
+{% block content %}
+<div class="video-container">
+    <video id="video-player" src="{{ url_for('static', filename='videos/' + video.filename) }}" controls
+        autoplay></video>
+    <div class="controls">
+        <button onclick="playPause()">播放/暂停</button>
+    </div>
+    <div class="video-info">
+        <span class="video-creation-time pink">拍摄时间: {{ video.creation_time.split('T')[0] }}</span>
+        <span class="video-visibility pink">当前状态: <span id="visibility-status">{{ '公开' if video.is_public else '私密'
+                }}</span>
+            {% if video.user_id == session.get('user_id') %}
+            <button id="toggle-visibility-button" data-video-id="{{ video.id }}">
+                切换
+            </button>
+            {% endif %}</span>
+
+        <button id="like-button" class="like-button" data-video-id="{{ video.id }}"
+            data-liked="{{ 'true' if is_liked else 'false' }}">
+            <i class="fas fa-heart"></i>
+        </button>
+        <span class="like-count">{{ video.liked_by.count() }}</span>
+
+
+    </div>
+</div>
+
+<a href="{{ url_for('video_list') }}">返回视频列表</a>
+<script src="{{ url_for('static', filename='js/video_player.js') }}"></script>
+<script>
+    document.getElementById('like-button').addEventListener('click', function () {
+        const videoId = this.dataset.videoId;
+        const liked = this.dataset.liked === 'true';
+        fetch(`/like_video/${videoId}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    this.dataset.liked = (!liked).toString();
+                    document.querySelector('.like-count').textContent = data.likes_count;
+                    this.classList.toggle('liked', !liked);
+                }
+            });
+    });
+
+    document.getElementById('toggle-visibility-button').addEventListener('click', function () {
+        const videoId = this.dataset.videoId;
+        fetch(`/toggle_visibility/${videoId}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    document.getElementById('visibility-status').textContent = data.is_public ? '公开' : '私密';
+                }
+            });
+    });
+</script>
+{% endblock %}

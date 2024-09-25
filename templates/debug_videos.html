@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}视频调试信息{% endblock %}
+
+{% block content %}
+<h1>视频调试信息</h1>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>文件名</th>
+        <th>用户ID</th>
+    </tr>
+    {% for video in videos %}
+    <tr>
+        <td>{{ video.id }}</td>
+        <td>{{ video.filename }}</td>
+        <td>{{ video.user_id }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
