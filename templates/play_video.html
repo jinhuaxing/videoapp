@@ -19,7 +19,7 @@
             </button>
             {% endif %}</span>
 
-        <button id="like-button" class="like-button" data-video-id="{{ video.id }}"
+        <button id="like-button" class="like-button {% if is_liked %}liked{% endif %}" data-video-id="{{ video.id }}"
             data-liked="{{ 'true' if is_liked else 'false' }}">
             <i class="fas fa-heart"></i>
         </button>

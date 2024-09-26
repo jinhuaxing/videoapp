@@ -3,8 +3,10 @@
 {% block title %}视频列表{% endblock %}
 
 {% block content %}
-<h1 class="pink">视频列表</h1>
-<a href="{{ url_for('upload_video') }}" class="pink">上传新视频</a>
+<div class="header">
+    <h1 class="pink">视频列表</h1>
+    <a href="{{ url_for('upload_video') }}" class="pink upload-button">上传新视频</a>
+</div>
 
 <h2 class="pink">我的视频</h2>
 <ul class="video-list">
@@ -17,11 +19,11 @@
             </a>
             <div class="video-info">
                 <a href="{{ url_for('play_video', video_name=video.name) }}" class="pink">{{ video.name }}</a>
-                <span class="video-duration pink">(时长: {{ video.duration }})</span>
-                <span class="video-creation-time pink">(拍摄时间: {{ video.creation_time.split('T')[0] }})</span>
-                <span class="video-visibility pink">({{ '公开' if video.is_public else '私密' }})</span>
-                <span class="video-likes pink">(点赞数: <span id="likes-count-{{ video.id }}">{{ video.likes_count
-                        }}</span>)</span>
+                <span class="video-creation-time pink">时间: {{ video.creation_time.split('T')[0] }}</span>
+                <span class="video-duration pink">时长: {{ video.duration }}</span>
+                <span class="video-visibility pink">{{ '公开' if video.is_public else '私密' }}</span>
+                <span class="video-likes pink">点赞: <span id="likes-count-{{ video.id }}">{{ video.likes_count
+                        }}</span></span>
             </div>
             <form action="{{ url_for('delete_video', video_id=video.id) }}" method="POST" style="display:inline;"
                 onsubmit="return confirmDelete()">
@@ -43,11 +45,11 @@
             </a>
             <div class="video-info">
                 <a href="{{ url_for('play_video', video_name=video.name) }}" class="pink">{{ video.name }}</a>
-                <span class="video-duration pink">(时长: {{ video.duration }})</span>
-                <span class="video-creation-time pink">(拍摄时间: {{ video.creation_time.split('T')[0] }})</span>
-                <span class="video-user pink">(上传者: {{ video.user }})</span>
-                <span class="video-likes pink">(点赞数: <span id="likes-count-{{ video.id }}">{{ video.likes_count
-                        }}</span>)</span>
+                <span class="video-creation-time pink">时间: {{ video.creation_time.split('T')[0] }}</span>
+                <span class="video-duration pink">时长: {{ video.duration }}</span>
+                <span class="video-user pink">上传: {{ video.user }}</span>
+                <span class="video-likes pink">点赞: <span id="likes-count-{{ video.id }}">{{ video.likes_count
+                        }}</span></span>
             </div>
         </div>
     </li>

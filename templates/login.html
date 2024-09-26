@@ -6,15 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>登录</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 </head>
 
 <body>
-    <div class="container">
+    <div class="container-login">
+
         <h1>登录</h1>
         {% with messages = get_flashed_messages() %}
         {% if messages %}
         {% for message in messages %}
-        <p class="alert">{{ message }}</p>
+        <p class=" alert">{{ message }}</p>
         {% endfor %}
         {% endif %}
         {% endwith %}
@@ -25,6 +27,7 @@
         </form>
         <p>没有账号? <a href="{{ url_for('register') }}">注册</a></p>
     </div>
+
 </body>
 
 </html>

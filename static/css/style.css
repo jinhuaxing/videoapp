@@ -1,21 +1,16 @@
 body {
     font-family: 'Comic Sans MS', cursive, sans-serif;
     background-color: #ffe4e1;
-    /* 浅粉色 */
     margin: 0;
     padding: 0;
     background-image: url('/static/images/sakura.jpg');
-    /* 樱花背景图 */
     background-size: cover;
-    background-position: center;
 
 }
 
 .navbar {
     background-color: #ff69b4;
-    /* 粉红色 */
     padding: 20px;
-    /* 增加内边距 */
     text-align: right;
 }
 
@@ -30,36 +25,36 @@ body {
     text-decoration: none;
     font-weight: bold;
     padding: 10px 15px;
-    /* 增加内边距 */
     border-radius: 5px;
     background-color: #ff1493;
-    /* 深粉色 */
 }
 
 .logout-button:hover {
     background-color: #c71585;
-    /* 更深的粉色 */
 }
 
 .container {
     max-width: 800px;
     margin: 20px auto;
-    /* 增加外边距 */
     padding: 30px;
-    /* 增加内边距 */
     background-color: rgba(255, 255, 255, 0.8);
-    /* 半透明白色背景 */
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
+.container-login {
+    max-width: 800px;
+    margin: 100px auto;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
     color: #ff69b4;
-    /* 粉红色 */
     font-size: 2.5em;
     padding-bottom: 10px;
-    /* 增加内边距 */
 }
 
 form {
@@ -74,26 +69,21 @@ button {
     font-size: 16px;
     border-radius: 5px;
     border: 2px solid #ff69b4;
-    /* 粉红色 */
 }
 
 button {
     background-color: #ff69b4;
-    /* 粉红色 */
     color: white;
     cursor: pointer;
 }
 
 button:hover {
     background-color: #ff1493;
-    /* 深粉色 */
 }
 
 .alert {
     background-color: #ffb6c1;
-    /* 浅粉色 */
     color: #c71585;
-    /* 深粉色 */
     padding: 10px;
     margin-bottom: 15px;
     border-radius: 5px;
@@ -102,7 +92,6 @@ button:hover {
 .video-container {
     margin-bottom: 20px;
     padding: 10px;
-    /* 增加内边距 */
 }
 
 video {
@@ -111,7 +100,6 @@ video {
     display: block;
     margin: 0 auto;
     border: 5px solid #ff69b4;
-    /* 粉红色 */
     border-radius: 10px;
 }
 
@@ -133,9 +121,7 @@ video {
     display: flex;
     align-items: center;
     background-color: #ffe4e1;
-    /* 浅粉色 */
     padding: 15px;
-    /* 增加内边距 */
     border-radius: 10px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
@@ -146,13 +132,10 @@ video {
     object-fit: cover;
     margin-right: 15px;
     border: 2px solid #ff69b4;
-    /* 粉红色 */
     border-radius: 5px;
 }
 
 .video-info {
-
-    /* 增加底部内边距，为点赞数量腾出更多空间 */
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -163,86 +146,35 @@ video {
     margin-bottom: 5px;
 }
 
-.video-more-info {
-    font-size: 0.9em;
-    color: #666;
-    margin-left: 10px;
-}
-
 .delete-button {
     background-color: #ff1493;
-    /* 深粉色 */
     color: white;
     border: none;
     cursor: pointer;
     padding: 10px 15px;
-    /* 增加内边距 */
     margin-left: 10px;
     border-radius: 5px;
 }
 
 .delete-button:hover {
     background-color: #c71585;
-    /* 更深的粉色 */
 }
 
 a {
     color: #ff69b4;
-    /* 粉红色 */
     text-decoration: none;
     font-weight: bold;
     padding: 5px 10px;
-    /* 增加内边距 */
 }
 
 a:hover {
     color: #ff1493;
-    /* 深粉色 */
 }
 
-/* 添加七种颜色的样式 */
-.red {
-    color: #ff6347;
-    /* 红色 */
-}
-
-.orange {
-    color: #ffa500;
-    /* 橙色 */
-}
-
-.yellow {
-    color: #ffd700;
-    /* 黄色 */
-}
-
-.green {
-    color: #32cd32;
-    /* 绿色 */
-}
-
-.cyan {
-    color: #00ced1;
-    /* 青色 */
-}
-
-.blue {
-    color: #1e90ff;
-    /* 蓝色 */
-}
-
-.purple {
-    color: #9370db;
-    /* 紫色 */
-}
-
-/* 添加粉色样式 */
 .pink {
     color: #ff69b4;
-    /* 粉红色 */
 }
 
-/* 点赞按钮式 */
 .like-button {
     background: none;
     border: none;
@@ -270,19 +202,27 @@ a:hover {
 
 .like-count {
     font-size: 12px;
-    /* position: absolute;
-    bottom: -20px;
-    left: 50%;
-    transform: translateX(-50%); */
     margin: 0 auto;
-    /*width: 100%;*/
     text-align: center;
 }
 
-/* 为了确保点赞按钮和数量的正确布局 */
-/*
-.video-info {
-    position: relative;
-    padding-bottom: 30px;
-    
-} */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.upload-button {
+    background-color: #ff1493;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.upload-button:hover {
+    background-color: #ff69b4;
+    color: white;
+}
